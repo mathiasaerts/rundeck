@@ -37,7 +37,7 @@ class RundeckJaasAuthenticationSuccessEventListenerTest extends Specification im
         setup:
         RundeckJaasAuthenticationSuccessEventListener listener = new RundeckJaasAuthenticationSuccessEventListener()
         listener.configurationService = Mock(ConfigurationService){
-            1 * getBoolean('rundeck.security.syncLdapUser', false) >> false
+            1 * getBoolean('security.syncLdapUser', false) >> false
         }
         listener.targetEventBus = Mock(EventBus)
 
@@ -53,7 +53,7 @@ class RundeckJaasAuthenticationSuccessEventListenerTest extends Specification im
         setup:
         RundeckJaasAuthenticationSuccessEventListener listener = new RundeckJaasAuthenticationSuccessEventListener()
         listener.configurationService = Mock(ConfigurationService){
-            1 * getBoolean('rundeck.security.syncLdapUser', false) >> true
+            1 * getBoolean('security.syncLdapUser', false) >> true
         }
         listener.targetEventBus = Mock(EventBus)
         Subject subject = new Subject(true, [new LdapEmailPrincipal(email),
@@ -87,7 +87,7 @@ class RundeckJaasAuthenticationSuccessEventListenerTest extends Specification im
         setup:
         RundeckJaasAuthenticationSuccessEventListener listener = new RundeckJaasAuthenticationSuccessEventListener()
         listener.configurationService = Mock(ConfigurationService){
-            1 * getBoolean('rundeck.security.syncLdapUser', false) >> true
+            1 * getBoolean('security.syncLdapUser', false) >> true
         }
         listener.targetEventBus = Mock(EventBus)
 
